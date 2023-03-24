@@ -12,15 +12,15 @@ const App = () => {
   const [filteredSubscribers, setFilterSubscribers] = useState(subscribers);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch("http://localhost:8004/subscribers?count=100")
       .then((response) => response.json())
       .then((users) => setSubscribers(users));
       console.log('users-fetch')
   }, []);
 
   useEffect(() => {
-    const newFilteredSubscribers = subscribers.filter((monster) => {
-      return monster.name.toLocaleLowerCase().includes(searchField);
+    const newFilteredSubscribers = subscribers.filter((subscriber) => {
+      return subscriber.user_name.toLocaleLowerCase().includes(searchField);
     });
 
     setFilterSubscribers(newFilteredSubscribers);
