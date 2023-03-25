@@ -12,7 +12,7 @@ const App = () => {
   const [filteredSubscribers, setFilterSubscribers] = useState(subscribers);
 
   useEffect(() => {
-    fetch("http://localhost:8004/subscribers?count=500")
+    fetch("https://twitch-sub-api.devopswithbrian.com/subscribers?count=500")
       .then((response) => response.json())
       .then((users) => setSubscribers(users));
       console.log('users-fetch')
