@@ -1,6 +1,6 @@
 
 .card-container {
-  width: 300px;
+  /* width: 300px;
   height: 400px;
   margin: 10px;
   background-color: #01655d;
@@ -12,7 +12,21 @@
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.25s ease-out;
-  font-family: 'Frijole';
+  font-family: 'Frijole'; */
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: 210px 250px 20px;
+  grid-template-areas: "image" "text" "stats";
+  border-radius: 18px;
+  background: #1d1d1d;
+  color:white;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+  font-family: roboto;
+  text-align: justify;
+  cursor: pointer;
+  margin:30px;
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
 }
 
 .card-container:hover {
@@ -21,16 +35,77 @@
 
 .card-header {
   color: #ca0505;
+  margin-top:0px;
+  font-size:28px;
+}
+
+.card-text {
+  grid-area: text;
+  margin: auto;
+  transform: translateZ(30px);
+  padding-top: 32px;
+}
+.card-text .date {
+  color: rgb(255, 7, 110);
+  font-size:13px;
+}
+.card-text p {
+  color: white;
+  font-size:14px;
+  font-weight: 300;
+}
+.card-text h2 {
+  margin-top:0px;
+  font-size:28px;
 }
 
 .founder-text {
-  background-color: #FEC006;
   display: inline-block;
   padding: 8px 10px;
-  margin: 0 0 10px;
+  margin: auto;
   color: #FFF;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.075rem;
   text-transform: uppercase;
+}
+
+.founder-text p {
+  background-color: #FEC006;
+  display: inline-block;
+  padding: 8px 10px;
+  margin: auto;
+  color: #FFF;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.075rem;
+  text-transform: uppercase;
+}
+
+.rgb::after {
+  content:"";
+  background: linear-gradient(45deg,
+  #ff0000 0%, 
+  #ff9a00 10%,
+  #d0de21 20%,
+  #4fdc4a 30%, 
+  #3fdad8 40%,
+  #2fc9e2 50%, 
+  #1c7fee 60%, 
+  #5f15f2 70%, 
+  #ba0cf8 80%, 
+  #fb07d9 90%, 
+  #ff0000 100%  )
+  repeat 0% 0% / 300% 100%;
+  position: absolute;
+  inset: -3px;
+  border-radius: 16px;
+  filter: blur(8px);
+  transform: translateZ(-1px); /*or z-index */
+  animation: rgb 6s linear infinite;
+}
+@keyframes rgb {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
 }
